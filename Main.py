@@ -24,10 +24,15 @@ class Main(Frame):
 
         result = self.instance_1.read()
         if result.is_valid():
-                print("Last valid input: " + str(datetime.datetime.now()))
+            print("Last valid input: " + str(datetime.datetime.now()))
 
-                print("Temperature: %-3.1f C" % result.temperature)
-                print("Humidity: %-3.1f %%" % result.humidity)
+            print("Temperature: %-3.1f C" % result.temperature)
+            print("Humidity: %-3.1f %%" % result.humidity)
+            self.temp = str(result.temperature)
+            self.hum = str(result.humidity)
+
+            self.lbl_h.configure(text=self.hum)
+            self.lbl_t.configure(text=self.temp)
 
 
     def build(self):
