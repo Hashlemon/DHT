@@ -2,7 +2,7 @@ from tkinter import Tk, Frame, Label, Button
 import RPi.GPIO as GPIO
 import dht11
 import time
-import datetime
+
 
 
 class Main(Frame):
@@ -24,12 +24,12 @@ class Main(Frame):
 
         result = self.instance_1.read()
         if result.is_valid():
-            print("Last valid input: " + str(datetime.datetime.now()))
+            
 
             print("Temperature: %-3.1f C" % result.temperature)
             print("Humidity: %-3.1f %%" % result.humidity)
-            self.temp = str(result.temperature)
-            self.hum = str(result.humidity)
+            self.temp = "Temperature: {} C".format(result.temperature)
+            self.hum = "Humidity: {} %".format(result.humidity)
 
             self.lbl_h.configure(text=self.hum)
             self.lbl_t.configure(text=self.temp)
